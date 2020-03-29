@@ -82,12 +82,9 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
- arr.forEach( function(value,index){
-callback(arr[i],arr);
- })
- return arr;
+  arr.forEach(element => callback(element, arr));
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -100,12 +97,14 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
-  arr.forEach( function(index,element,arr)
- {
-
- })
+  arr.forEach(item => {
+  
+    if (item % 3 === 2) {
+      arr.pop();
+    }
+  });
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
@@ -125,6 +124,13 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  var list = [];
+  availableItems.forEach(item => {
+    if (item.available === true) {
+      list.push(item.name);
+    }
+  })
+  return list;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,8 +149,24 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  var arrayNo = [];
+  arr.forEach(numb => {
+    if (numb % 5 === 0 & numb % 3 === 0) {
+      arrayNo.push('Fizz Buzz');
+    }
+    else if (numb % 3 === 0) {
+      arrayNo.push('Fizz');
+    }
+    else if (numb % 5 === 0) {
+      arrayNo.push('Buzz');
+    }
+    else{
+    arrayNo.push(numb);
+  }
+  })
+  // Solution code here...
+  return arrayNo;
 };
-
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
