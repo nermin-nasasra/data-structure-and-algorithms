@@ -37,11 +37,13 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let string=/^[A-Z]\w/g;
-  let arr=string.match(str);
-  return arr;
-
-
+  let arrempty = [];
+  let reg = /\b[A-Z]\w*\b/mg;
+  if (str.match(reg) === null) {
+    return arrempty;
+  } else {
+    return str.match(reg);
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,7 +111,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
-  return str.replace(/[a|e|i|o|u]/g, '_');
+  return str.replace(/[aeiou]/gmi, '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
